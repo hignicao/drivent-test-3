@@ -127,6 +127,8 @@ describe('GET /hotels', () => {
             id: expect.any(Number),
             name: expect.any(String),
             image: expect.any(String),
+            createdAt: expect.any(String),
+            updatedAt: expect.any(String),
           }),
         ]),
       );
@@ -243,12 +245,16 @@ describe('GET /hotels/:hotelId', () => {
           id: hotel.id,
           name: hotel.name,
           image: hotel.image,
+          createdAt: hotel.createdAt.toISOString(),
+          updatedAt: hotel.updatedAt.toISOString(),
           Rooms: expect.arrayContaining([
             expect.objectContaining({
               id: expect.any(Number),
               name: expect.any(String),
               capacity: expect.any(Number),
               hotelId: hotel.id,
+              createdAt: expect.any(String),
+              updatedAt: expect.any(String),
             }),
           ]),
         }),
